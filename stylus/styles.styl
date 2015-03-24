@@ -1,0 +1,216 @@
+@import "Icons.styl"
+
+body
+    margin 0
+    font-family Arial
+    padding 20px
+    background #F5F5F5
+// .Discussion
+//     border 1px solid gray
+//     padding 1em
+//     border-radius 1em
+//     &-container
+//         display flex
+//     &-votes
+//         text-align center
+//         display flex
+//         align-items center
+//         margin-right 1em
+//         font-weight bold
+//     &-bottom
+//         display flex
+//     &-bottomLeft
+//         a
+//             text-decoration none
+//             cursor pointer
+//             color red
+//             border 1px solid red
+//             width 30px
+//             height 30px 
+//             line-height 30px
+//             border-radius 50%
+//             display inline-block
+//             text-align center
+//             font-size 30px
+            
+.DiscussionReplyForm
+    display flex
+    padding .5em
+    &-submit
+        background orange
+        border none
+        border-bottom 5px solid #B6801B
+        border-radius .3em
+        color white
+        cursor pointer
+        font-size 20px
+        font-weight bold
+        padding 0 1em
+        text-transform uppercase
+        outline 0
+        &:hover
+            background #DB9410
+    &-area
+        flex 1
+        margin-right 1em
+        font-size 16px
+        font-family Arial
+        padding .8em
+        border-radius .3em
+        outline 0
+        
+.Discussions
+    background #F5F5F5
+    &-wrapper
+        max-width 680px
+        margin 0 auto
+        padding 0 1em
+.Discussion
+    a
+        color #0690CF
+    &-list
+        margin-bottom 30px
+        // background white
+        border-radius 10px
+    .Discussion
+        margin 0
+    //layout
+    &-top
+        display flex
+        justify-content space-between
+        align-items center
+    &-bottom
+        margin-top 10px
+        margin-left 53px
+        display flex
+        justify-content space-between
+        align-items center
+    &-bottomLeft
+        > span
+            margin-right 15px
+    &-children
+        // border 1px solid red
+        .Discussion
+            margin-left 45px
+            &-wrapper
+                border-radius 0
+    //assets
+    &-wrapper
+        padding-bottom 15px
+    &-text
+        // font-weight normal
+        // test()
+        margin-left 53px
+        // cursor pointer
+        a
+            color #0A8ECD
+    &-date
+    &-points
+        margin-left 5px
+    &-reply
+        // font-size 15px
+        color #0690cf 
+        cursor pointer
+        margin-right 10px
+        &:before
+            margin-right 5px
+            vertical-align middle
+            font-size 12px
+
+    &-points
+    &-date
+    &-reply
+    &-comments
+        font-size 15px
+    &-points
+    &-date
+    &-comments
+        color gray
+    
+    &-vote
+        border-radius 50%
+        color #77838A
+        display inline-block
+        font-size 20px
+        height 20px
+        text-align center
+        vertical-align middle
+        width 20px
+        cursor pointer
+        &:before
+            vertical-align top
+    &-voteUp
+        &.is-active 
+            color #008FD5
+    &-voteDown
+        &.is-active
+            color #FF530F
+.DiscussionAuthor
+    &-avatar
+        border-radius 50%
+        overflow hidden
+        vertical-align middle
+        margin-right 0.5em
+    &-name
+        color #556269
+        font-size 15px
+        font-weight bold
+        margin-left 5px
+        a 
+            text-decoration none
+
+.Discussion
+    //si es el primer comentario
+    &.is-first
+
+        // box-shadow 0 10px 15px -10px rgba(128,128,128,0.5)
+        position relative
+        margin-bottom 40px
+        &.is-empty
+            // background red
+            margin-bottom 20px
+        // background red
+        // border-bottom 1px solid #C1C1C1
+                
+    &.is-second
+        padding-top 5px
+        background-repeat no-repeat
+        // &:nth-of-type(1)
+        //     background-image url('../../images/timeline/level2.jpg')
+        > .Discussion
+            &-wrapper
+                margin-left 45px
+    &.is-third
+        background-repeat no-repeat
+        padding-top 5px
+        // &:nth-of-type(1)
+        //     background-image url('../../images/timeline/level3.jpg')
+        > .Discussion
+            &-wrapper
+                margin-left 90px
+                
+    &.is-shadow
+        > .Discussion
+            &-wrapper
+                position relative
+                z-index 1
+                // box-shadow 0 10px 15px -10px rgba(128,128,128,0.5)
+
++to(767px)
+    .Discussion
+        &-date
+        &-comments
+        &-points
+        &-reply
+            font-size 12px
+        &-text
+             margin-left 25px
+        &-bottom
+            margin-left 25px
+        &Author
+            &-avatar
+                width 20px
+                height 20px
+            &-name
+                font-size 12px
+    
