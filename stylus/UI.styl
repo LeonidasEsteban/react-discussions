@@ -1,0 +1,180 @@
+@import 'vars.styl'
+.btn
+    background-color lightgray
+    border none
+    border-radius 3px
+    box-sizing border-box
+    color white //!important
+    cursor pointer
+    display inline-block
+    font-family base_font
+    font-size 15px
+    font-weight bold
+    height 35px
+    line-height 32px
+    padding 0 1em
+    text-decoration none
+    user-select none
+    transition  0.2s
+    box-shadow inset 0 -2px rgba(0,0,0,0.3)
+    appearance(none)
+    
+    &:before
+        margin-right 10px
+        vertical-align middle
+    &:hover
+        background-color black
+        box-shadow inset 0 -3px rgba(0,0,0,0.3)
+    strike
+        font-weight normal
+        font-size .8em
+
+.btn-Green
+    @extends .btn
+    background-color color-green
+    &:hover
+        color white
+        background-color color-red
+.btn-Yellow
+    @extends .btn
+    background-color color-yellow_B
+    color color-brown
+    &:hover
+        background-color color-yellow_A
+        color color-brown
+        
+.btn-Orange
+    @extends .btn
+    background-color #FE6829
+    &:hover
+        background-color color-orange
+
+
+.btn-Red
+    @extends .btn
+    background-color color-red
+    &:hover
+        background-color color-green
+
+.btn-Purple
+    @extends .btn
+    background-color color-purple
+    &:hover
+        background-color lighten(color-purple, 20%)
+.btn--rounded
+    border none
+    border-radius 50%
+    height 50px
+    line-height 50px
+    width 50px
+    text-align center
+    margin-left 15px
+    &:before
+        border none !important
+        margin 0 !important
+        padding 0 !important
+.btn--big
+    font-size 23px
+    border-bottom-width 5px
+    padding 0 .7em
+    height 56px
+    line-height 51px
+
++to(767px)
+    .btn--big
+        &.btn--responsive
+            font-size 15px
+            border-bottom-width 3px
+            padding 0 1em
+            height 35px
+            line-height 32px
+
+
+.btn-Full
+    display block
+    border-radius 0 0 15px 15px
+    relative()
+    &:after
+        font-size 10px
+        absolute(top  right 15px)
+
+
+
+.btn--corner-bottom
+    diplay block
+    width 100%
+    text-transform uppercase
+    border-radius 0
+    border none
+    padding 15px 0
+    relative()
+    &:after
+        margin-left -5px
+        absolute(top 100% left 50%)
+        triangle("top",color-green, top 10px left 10px right 10px)
+.btn-Facebook
+    @extends .btn
+    background-color color-facebook
+    &:hover
+        background-color lighten(color-facebook, 25%)
+    &[class^="icon-"]
+    &[class*=" icon-"]
+        &:before
+            border-right 1px solid white
+            padding-right 10px
+            margin-right 5px
+            
+    
+a.link-red
+    color color-red 
+    &:hover 
+        color color-green 
+a.link-green
+    color color-green
+    &:hover
+        color color-red
+
+.btn-Twitter
+    @extends .btn
+    background-color color-twitter
+    &:hover
+        background-color lighten(color-twitter, 25%)
+    &[class^="icon-"]
+    &[class*=" icon-"]
+        &:before
+            border-right 1px solid white
+            padding-right 10px
+            margin-right 5px
+
+.btn-YouTube
+    @extends .btn
+    background-color color-youtube
+    &:hover
+        background-color lighten(color-youtube, 25%)
+    &[class*=" icon-"]
+        &:before
+            border-right 1px solid white
+            padding-right 10px
+            margin-right 5px
+
+//ui 
+.title-A
+    font-size 36px
+    font-weight bold
+
+.title-B
+    font-size 26px
+.title-C
+    border-bottom 1px solid color-black
+    display inline-block
+    font-size 32px
+    padding-bottom 10px
+    text-align center
+.title-Main
+    font-size 65px
+
+
+
++to(767px)
+    .title-C
+        font-size 21px

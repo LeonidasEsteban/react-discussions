@@ -8,7 +8,7 @@ var EventEmitter = require('events').EventEmitter;
 
 var _discussions = {};
 var CHANGE_EVENT = 'change';
-
+var user = {};
 
 function create(text) {
   // Hand waving here -- not showing how this interacts with XHR or persistent
@@ -18,7 +18,8 @@ function create(text) {
   _discussions[id] = {
     id: id,
     complete: false,
-    text: text
+    text: text,
+    user : user,
   };
 }
 
@@ -34,6 +35,10 @@ DiscussionDispatcher.register(function(action){
           DiscussionStores.emitChange();
         }
         break;
+
+        case "SET_USER":
+        user = action.user;
+        break;
     }
 })
 
@@ -41,6 +46,9 @@ DiscussionDispatcher.register(function(action){
 var DiscussionStores = assign({}, EventEmitter.prototype, {
     getAll: function() {
       return _discussions;
+    },
+    getUser : function(){
+      return user;
     },
     emitChange: function() {
       this.emit(CHANGE_EVENT);

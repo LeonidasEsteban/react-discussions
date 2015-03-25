@@ -8,6 +8,13 @@ var DiscussionActions = {
           actionType: DiscussionConstans.DISCUSSION_CREATE,
           text: text
         });
+    },
+    //that user is an object
+    setUser : function(user){
+        DiscussionDispatcher.dispatch({
+          actionType: "SET_USER",
+          user : user
+        });
     }
 }
 
