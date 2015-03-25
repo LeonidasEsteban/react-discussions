@@ -1,38 +1,38 @@
+@import "nib"
+
+@import "UI.styl"
+
 @import "Icons.styl"
+@import "formsUI_A.styl"
 
 body
     margin 0
     font-family Arial
-    padding 20px
+
     background #F5F5F5
-// .Discussion
-//     border 1px solid gray
-//     padding 1em
-//     border-radius 1em
-//     &-container
-//         display flex
-//     &-votes
-//         text-align center
-//         display flex
-//         align-items center
-//         margin-right 1em
-//         font-weight bold
-//     &-bottom
-//         display flex
-//     &-bottomLeft
-//         a
-//             text-decoration none
-//             cursor pointer
-//             color red
-//             border 1px solid red
-//             width 30px
-//             height 30px 
-//             line-height 30px
-//             border-radius 50%
-//             display inline-block
-//             text-align center
-//             font-size 30px
-            
+
+.DiscussionBody
+    min-height 100vh
+    display flex
+    flex-direction column
+    justify-content space-between
+.DiscussionFooter
+    background #FFA439
+    display flex
+    align-items center
+    color white
+    padding 0 0 0 1em
+    justify-content space-between
+.DiscussionUser
+    display flex
+    min-height 100vh
+    // align-items center
+    flex-direction column
+    justify-content center
+    > *
+        margin-bottom 1.2em
+    .label_A
+        margin-bottom .5em
 .DiscussionReplyForm
     display flex
     padding .5em
@@ -48,6 +48,7 @@ body
         padding 0 1em
         text-transform uppercase
         outline 0
+        -webkit-appearance: none; 
         &:hover
             background #DB9410
     &-area

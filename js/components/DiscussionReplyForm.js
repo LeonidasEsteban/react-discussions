@@ -2,7 +2,9 @@ var React = require('react');
 
 
 var DiscussionItem = require('./DiscussionItem');
+var DiscussionStores = require('../stores/DiscussionStores');
 
+var user = DiscussionStores.getUser();
 
 var DiscussionReplyForm = React.createClass({
     getInitialState : function(){
@@ -28,10 +30,11 @@ var DiscussionReplyForm = React.createClass({
         // var reply = {
         //     value : this.state.value
         // }
-
+        var user = DiscussionStores.getUser();
+        
         var answers = this._owner.state.answers;
 
-        answers.push(<DiscussionItem  text={this.state.value}/>);
+        answers.push(<DiscussionItem  text={this.state.value} user={user}/>);
         this._owner.setState({
             answers : answers,
             isReplying : false,

@@ -1,7 +1,6 @@
 var React = require('react');
 var ReactPropTypes = React.PropTypes;
 
-// var DiscussionItem = require('./DiscussionItem');
 var DiscussionActions = require('../actions/DiscussionActions');
 
 var DiscussionAdd = React.createClass({

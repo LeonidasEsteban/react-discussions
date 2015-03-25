@@ -19,27 +19,21 @@ var DiscussionItem = React.createClass({
     getDefaultProps: function(){
         return {
             text : "Text default"
-            // class : "Discussion-child"
         }
     },
     render : function(){
-        // var answers;
         var replyForm;
         if(this.state.isReplying){
             replyForm = <DiscussionReplyForm/>
         }
-        console.log(this.state.isReplying);
-        // if(this.state.reply){
-        //     answers = <DiscussionItem text={this.state.reply.value} />
-        // }
         return  (
             <div className="Discussion is-first  is-shadow" >
                 <div className="Discussion-wrapper">
                     <div className="Discussion-top">
                         <div className="DiscussionAuthor">
                             <span className="DiscussionAuthor-name">
-                                <img src="https://avatars0.githubusercontent.com/u/1150114" className="DiscussionAuthor-avatar" width="40" height="40"/>
-                                <a href="#" title="Ver perfil de usuario" target="_blank">LeonidasEsteban</a>
+                                <img src={this.props.user.avatar} className="DiscussionAuthor-avatar" width="40" height="40"/>
+                                <a href="#" title="Ver perfil de usuario" target="_blank">{this.props.user.name}</a>
                             </span>
                         </div>
                         <div className="">
