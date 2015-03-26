@@ -49,7 +49,7 @@ var DiscussionItem = React.createClass({
                                 <span className="Discussion-points">{this.state.votes} punto</span>
                             </span>
                             <span onClick={this._onReply} className="icon-reply Discussion-reply">Responder</span>
-                            <span className="Discussion-comments">2 comentarios</span>
+                            <span className="Discussion-comments">{this.state.answers.length} respuestas</span>
                         </div>
                         <div className="Discussion-bottomRight">
                         </div>
