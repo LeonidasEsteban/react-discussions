@@ -5,7 +5,6 @@ var assign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
 
 
-
 var _discussions = {};
 var CHANGE_EVENT = 'change';
 var user = {};
@@ -20,6 +19,7 @@ function create(text) {
     complete: false,
     text: text,
     user : user,
+    date : Date()
   };
 }
 

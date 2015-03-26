@@ -17,7 +17,7 @@ var DiscussionMain = React.createClass({
         var discussions = []
         
         for (var key in AllDiscussions) {
-          discussions.push(<DiscussionItem text={AllDiscussions[key].text} user={AllDiscussions[key].user} />);
+          discussions.push(<DiscussionItem text={AllDiscussions[key].text} user={AllDiscussions[key].user} date={AllDiscussions[key].date} />);
         }
         return(
             <div className="Discussion-list">
