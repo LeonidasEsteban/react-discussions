@@ -75,7 +75,7 @@ var DiscussionUser = React.createClass({
             avatar = this.state.avatar
         }
         if(this.state.name === ""){
-            name = "Invitado"
+            name = "Guest"
         }else{
             name = this.state.name
         }

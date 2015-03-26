@@ -1,5 +1,5 @@
 var React = require('react');
-
+var moment = require('moment');
 
 
 
@@ -11,6 +11,7 @@ var DiscussionItem = React.createClass({
         value: ReactPropTypes.string
     },
     getInitialState: function() {
+       
         return {
             votes : 1,
             answers : [],
@@ -18,14 +19,19 @@ var DiscussionItem = React.createClass({
     },
     getDefaultProps: function(){
         return {
-            text : "Text default"
+            text : "Text default",
+            level : 1,
         }
+    },
+    componentDidMount : function(){
+        this.interval = window.setInterval(this.forceUpdate.bind(this), 60000);
     },
     render : function(){
         var replyForm;
         if(this.state.isReplying){
             replyForm = <DiscussionReplyForm/>
         }
+        var date = moment(this.props.date).fromNow();
         return  (
             <div className="Discussion is-first  is-shadow" >
                 <div className="Discussion-wrapper">
@@ -37,7 +43,7 @@ var DiscussionItem = React.createClass({
                             </span>
                         </div>
                         <div className="">
-                            <span className="Discussion-date">Hace 2 horas</span>
+                            <span className="Discussion-date">{date}</span>
                         </div>
                     </div>
                     <div className="Discussion-text">{this.props.text} </div>
@@ -46,10 +52,18 @@ var DiscussionItem = React.createClass({
                             <span>
                                 <span onClick={this._onUpVote} className="Discussion-vote Discussion-voteUp icon-plus_A "></span>
                                 <span onClick={this._onDownVote} className="Discussion-vote Discussion-voteDown icon-minus_A "></span>
-                                <span className="Discussion-points">{this.state.votes} punto</span>
+                                <span className="Discussion-points">{this.state.votes} points</span>
                             </span>
-                            <span onClick={this._onReply} className="icon-reply Discussion-reply">Responder</span>
-                            <span className="Discussion-comments">2 comentarios</span>
+                            {function(){
+                                if(this.props.level < 3){
+                                    return (
+                                        <span>
+                                            <span onClick={this._onReply} className="icon-reply Discussion-reply">Reply</span>
+                                            <span className="Discussion-comments">{this.state.answers.length} answers</span>
+                                        </span>
+                                    )
+                                }
+                            }.bind(this)()}
                         </div>
                         <div className="Discussion-bottomRight">
                         </div>

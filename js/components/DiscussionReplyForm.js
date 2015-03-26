@@ -1,6 +1,5 @@
 var React = require('react');
 
-
 var DiscussionItem = require('./DiscussionItem');
 var DiscussionStores = require('../stores/DiscussionStores');
 
@@ -33,8 +32,9 @@ var DiscussionReplyForm = React.createClass({
         var user = DiscussionStores.getUser();
         
         var answers = this._owner.state.answers;
-
-        answers.push(<DiscussionItem  text={this.state.value} user={user}/>);
+        var level = this._owner.props.level + 1;
+        var date = Date();
+        answers.push(<DiscussionItem  text={this.state.value} user={user} level={level} date={date}/>);
         this._owner.setState({
             answers : answers,
             isReplying : false,
