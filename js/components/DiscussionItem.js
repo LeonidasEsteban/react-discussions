@@ -18,7 +18,8 @@ var DiscussionItem = React.createClass({
     },
     getDefaultProps: function(){
         return {
-            text : "Text default"
+            text : "Text default",
+            level : 1,
         }
     },
     render : function(){
@@ -48,8 +49,16 @@ var DiscussionItem = React.createClass({
                                 <span onClick={this._onDownVote} className="Discussion-vote Discussion-voteDown icon-minus_A "></span>
                                 <span className="Discussion-points">{this.state.votes} punto</span>
                             </span>
-                            <span onClick={this._onReply} className="icon-reply Discussion-reply">Responder</span>
-                            <span className="Discussion-comments">{this.state.answers.length} respuestas</span>
+                            {function(){
+                                if(this.props.level < 3){
+                                    return (
+                                        <span>
+                                            <span onClick={this._onReply} className="icon-reply Discussion-reply">Responder</span>
+                                            <span className="Discussion-comments">{this.state.answers.length} respuestas</span>
+                                        </span>
+                                    )
+                                }
+                            }.bind(this)()}
                         </div>
                         <div className="Discussion-bottomRight">
                         </div>

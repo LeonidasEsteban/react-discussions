@@ -33,8 +33,8 @@ var DiscussionReplyForm = React.createClass({
         var user = DiscussionStores.getUser();
         
         var answers = this._owner.state.answers;
-
-        answers.push(<DiscussionItem  text={this.state.value} user={user}/>);
+        var level = this._owner.props.level + 1;
+        answers.push(<DiscussionItem  text={this.state.value} user={user} level={level} />);
         this._owner.setState({
             answers : answers,
             isReplying : false,
