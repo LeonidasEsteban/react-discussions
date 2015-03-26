@@ -10,7 +10,7 @@ var DiscussionFooter = React.createClass({
     },
     render : function(){
         return (
-            <footer className="DiscussionFooter">Hi {this.state.user.name} <img src={this.state.user.avatar} alt={this.state.user.name}/></footer>
+            <footer className="DiscussionFooter">Hi {this.state.user.name} <img src={this.state.user.avatar} alt={this.state.user.name} with="40" /></footer>
         )
     }
 })
