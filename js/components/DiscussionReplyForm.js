@@ -13,7 +13,7 @@ var DiscussionReplyForm = React.createClass({
     },
     render: function(){
         return (
-            <form onSubmit={this._onSubmit} className="DiscussionReplyForm">
+            <form onSubmit={this._onSubmit.bind(this)} className="DiscussionReplyForm">
                 <textarea name="description" autoFocus onChange={this._onChange} value={this.state.value} placeholder="Add your reply" className="DiscussionReplyForm-area"></textarea>
                 <input type="submit" value="send" className="DiscussionReplyForm-submit"/>
             </form>
@@ -26,15 +26,13 @@ var DiscussionReplyForm = React.createClass({
     },
     _onSubmit : function(e){
         e.preventDefault()
-        // var reply = {
-        //     value : this.state.value
-        // }
         var user = DiscussionStores.getUser();
-        
         var answers = this._owner.state.answers;
         var level = this._owner.props.level + 1;
         var date = Date();
-        answers.push(<DiscussionItem  text={this.state.value} user={user} level={level} date={date}/>);
+        var id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+
+        answers.push(<DiscussionItem key={id} text={this.state.value} user={user} level={level} date={date}/>);
         this._owner.setState({
             answers : answers,
             isReplying : false,

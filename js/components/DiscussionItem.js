@@ -1,5 +1,7 @@
-var React = require('react');
+var React = require('react/addons');
 var moment = require('moment');
+var addons = React.addons;
+var CSSTransitionGroup =  addons.CSSTransitionGroup;
 
 
 
@@ -33,7 +35,7 @@ var DiscussionItem = React.createClass({
         }
         var date = moment(this.props.date).fromNow();
         return  (
-            <div className="Discussion is-first  is-shadow" >
+            <div className="Discussion is-first  is-shadow">
                 <div className="Discussion-wrapper">
                     <div className="Discussion-top">
                         <div className="DiscussionAuthor">
@@ -73,7 +75,9 @@ var DiscussionItem = React.createClass({
                     {replyForm}
                 </div>
                 <div className="Discussion-children">
-                    {this.state.answers}
+                    <CSSTransitionGroup transitionName="Discussion-child">
+                    {this.state.answers.reverse()}
+                    </CSSTransitionGroup>
                 </div>
             </div>
         )
