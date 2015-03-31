@@ -1,4 +1,7 @@
-var React = require('react');
+var React = require('react/addons');
+var addons = React.addons;
+var CSSTransitionGroup =  addons.CSSTransitionGroup;
+
 
 var DiscussionItem = require('./DiscussionItem');
 var DiscussionStores = require('../stores/DiscussionStores');
@@ -17,11 +20,13 @@ var DiscussionMain = React.createClass({
         var discussions = []
         
         for (var key in AllDiscussions) {
-          discussions.push(<DiscussionItem text={AllDiscussions[key].text} user={AllDiscussions[key].user} date={AllDiscussions[key].date} />);
+          discussions.push(<DiscussionItem key={AllDiscussions[key].id} text={AllDiscussions[key].text} user={AllDiscussions[key].user} date={AllDiscussions[key].date} />);
         }
         return(
             <div className="Discussion-list">
-                {discussions}
+                <CSSTransitionGroup transitionName="Discussion">
+                    {discussions.reverse()}
+                </CSSTransitionGroup>
             </div>
         )
     },
