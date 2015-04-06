@@ -1,5 +1,7 @@
-var React = require('react');
+var React = require('react/addons');
 
+var addons = React.addons;
+var CSSTransitionGroup =  addons.CSSTransitionGroup;
 
 var DiscussionStores = require('./stores/DiscussionStores');
 
@@ -11,7 +13,7 @@ var App = React.createClass({
     render : function(){
         return (
             <div>
-                <DiscussionUser/>
+                <DiscussionUser />
             </div>
         )
     },
